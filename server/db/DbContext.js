@@ -1,11 +1,19 @@
 import mongoose from 'mongoose'
 import { AccountSchema, ProfileSchema } from '../models/Account'
+import { GalaxySchema } from "../models/Galaxy";
+import { PlanetSchema } from "../models/Planet";
+import { SpeciesSchema } from "../models/species";
+import { StarSchema } from "../models/Star";
 import { ValueSchema } from '../models/Value'
 
 class DbContext {
   Values = mongoose.model('Value', ValueSchema);
   Account = mongoose.model('Account', AccountSchema);
   Profiles = mongoose.model('Profile', ProfileSchema, 'accounts');
+  Galaxies = mongoose.model('Galaxy', GalaxySchema);
+  Stars = mongoose.model('Star', StarSchema);
+  Planets = mongoose.model('Planet', PlanetSchema);
+  Species = mongoose.model('Species', SpeciesSchema);
 }
 
 export const dbContext = new DbContext()
